@@ -2,7 +2,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("tb_tasks", {
+    await queryInterface.createTable("tasks", {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -13,10 +13,16 @@ module.exports = {
         type: Sequelize.STRING,
       },
       is_done: {
-        type: Sequelize.STRING,
+        type: Sequelize.BOOLEAN,
       },
       collections_id: {
         type: Sequelize.INTEGER,
+        references: {
+          model: "collections",
+          key: "id",
+        },
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
       },
       createdAt: {
         allowNull: false,
@@ -29,6 +35,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("tb_tasks");
+    await queryInterface.dropTable("tasks");
   },
 };

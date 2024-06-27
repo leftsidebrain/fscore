@@ -3,11 +3,9 @@ function selectionSort(arr) {
   for (let i = 0; i < n - 1; i++) {
     // Temukan elemen terkecil dalam array yang belum diurutkan
     let minIndex = i;
-    console.log("🚀 ~ selectionSort ~ minIndex i:", minIndex);
     for (let j = i + 1; j < n; j++) {
       if (arr[j] < arr[minIndex]) {
         minIndex = j;
-        console.log("🚀 ~ selectionSort ~ minIndex j:", minIndex);
       }
     }
     // Tukar elemen terkecil dengan elemen pertama dalam array yang belum diurutkan
@@ -25,6 +23,7 @@ let dataArray = ["u", "D", "m", "w", "b", "a", "y", "s", "i", "s", "w", "a", "e"
 
 // Mengurutkan array
 let sortedArray = selectionSort(dataArray);
+console.log("🚀 ~ sortedArray:", sortedArray);
 
 // Menggabungkan array menjadi string yang sesuai dengan urutan "Dumbways is awesome"
 let targetArray = "Dumbways is awesome".split("");

@@ -14,8 +14,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarSupportedContent">
-          <a href="/login" style="text-decoration: none;"><button class="btn btn-danger me-2">Login</button></a>
-          <a href="/register" style="border: none;"><button class="btn btn-danger me-2">Register</button></a>
+          <a href="/logout" style="text-decoration: none;"><button class="btn btn-danger me-2">Logout</button></a>
         </div>
       </div>
     </nav>
@@ -26,12 +25,15 @@
         <form action="/add-task" method="post">
           <input type="hidden" value="{{id}}" name="id">
           <label class="form-label">To Do</label>
-          <input type="text" name="to_do" class="form-control mb-3">
-          <div class=" d-flex justify-content-around align-items-center mb-3" style="border: 2px solid blue; border-radius: 50px; height: 40px;">
+          <input type="text" name="to_do" class="form-control mb-3" placeholder="-add activity-">
+          <div class=" d-flex justify-content-around align-items-center mb-3" style="border: 1px solid rgb(224, 224, 224); border-radius: 5px; height: 40px;">
             <label >Is Done?</label>
-            <input type="checkbox" name="is_done">
+            <input type="checkbox" name="is_done" >
           </div>
+          <div class="text-end">
+
           <button class="btn btn-success">Sumbit</button>
+          </div>
         </form>
     </div>
 
