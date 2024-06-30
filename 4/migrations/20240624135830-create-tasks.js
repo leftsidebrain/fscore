@@ -17,12 +17,7 @@ module.exports = {
       },
       collections_id: {
         type: Sequelize.INTEGER,
-        references: {
-          model: "collections",
-          key: "id",
-        },
-        onDelete: "CASCADE",
-        onUpdate: "CASCADE",
+        allowNull: false,
       },
       createdAt: {
         allowNull: false,

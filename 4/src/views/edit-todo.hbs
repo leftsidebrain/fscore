@@ -29,7 +29,7 @@
           <input type="text" name="to_do" class="form-control mb-3" value="{{data.to_do}}">
           <div class=" d-flex justify-content-around align-items-center mb-3" style="border: 2px solid blue; border-radius: 50px; height: 40px;">
             <label >Is Done?</label>
-            <input type="checkbox" name="is_done">
+            <input type="checkbox" name="is_done" {{#if data.is_done}} checked {{/if}}>
           </div>
           <button class="btn btn-success">Sumbit</button>
         </form>

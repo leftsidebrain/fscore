@@ -8,17 +8,24 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      users.hasMany(models.collections);
+      this.hasMany(models.collections, {
+        foreignKey: "user_id",
+      });
+      // define association here
+    }
+    toJSON() {
+      return { ...this.get(), id: undefined, password: undefined, createdAt: undefined, updatedAt: undefined };
     }
   }
   users.init(
     {
-      email: DataTypes.STRING,
       username: DataTypes.STRING,
+      email: DataTypes.STRING,
       password: DataTypes.STRING,
     },
     {
       sequelize,
+
       modelName: "users",
     }
   );

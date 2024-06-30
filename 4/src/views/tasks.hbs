@@ -30,50 +30,54 @@
           <div style="background-color: rgb(240, 240, 240); border-radius: 10px;" class="col-auto d-flex align-items-center ms-1 justify-content-center">
             <div class="me-3 d-flex flex-column">
 
-              <a style="text-decoration: none; text-transform: uppercase;" href="/edit-collections/{{data2.id}}"> <span>{{data2.name}}</span></a>
+              <a style="text-decoration: none; text-transform: uppercase;" href="/edit-collections/{{data.id}}"> <span>{{data.name}}</span></a>
 
-              <span>2/3 Done</span>
+              <span>{{doneTasks}}/{{totalTasks}}</span>
             </div>
-            <i class="fa-solid fa-clock" style="font-size: 30px;"></i>
+            {{#if allDone}}
+              <i class="fa-solid fa-circle-check" style="color: #48da68; font-size: 30px;"></i>
+            {{else}}
+              <i class="fa-solid fa-clock" style="font-size: 30px;"></i>
+            {{/if}}
           </div>
 
           <div class="col-8 d-flex align-items-center justify-content-end">
-            <button class="btn btn-danger"><a style="text-decoration: none; color: white;" href="/delete/{{data2.id}}">Delete</a></button>
+            <button class="btn btn-danger"><a style="text-decoration: none; color: white;" href="/delete/{{data.id}}">Delete</a></button>
           </div>
         </div>
 
         <div class="row mt-5 mb-5 d-flex align-items-center" style="border: 2px solid rgb(5, 5, 145); height: 40px; border-radius: 50px;">
-          <a style="text-decoration: none; margin-left: 10px;" href="/add-task/{{data2.id}}"><i class="fa-solid fa-circle-plus"> add task</i></a>
+          <a style="text-decoration: none; margin-left: 10px;" href="/add-task/{{data.id}}"><i class="fa-solid fa-circle-plus"> add task</i></a>
         </div>
 
-        <h5>Task Completed</h5>
-        {{#each data}}
+        <h5>Task Completed {{doneTasks}}</h5>
+        {{#each data.tasks}}
           {{#if is_done}}
-            <div class="row d-flex align-items-center justify-content-center mb-3" style="height: 3rem; border: 2px solid rgb(5, 5, 145); border-radius: 50px;">
+            <div class="row d-flex align-items-center justify-content-center mb-5" style="height: 3rem; border: 2px solid rgb(5, 5, 145); border-radius: 50px;">
               <div class="col-6">
-                <span style="font-weight: 600;" class="ms-3">{{to_do}}</span>
+                <span style="font-weight: 600;text-transform: capitalize;" class="ms-3">{{to_do}}</span>
               </div>
               <div class="col-6 text-end d-flex align-items-center justify-content-end">
                 <i class="fa-solid fa-circle-check me-3" style="color: #48da68; font-size: 25px;"></i>
-                <a class="me-3" href="/edit-todo/{{id}}"><i class="fa-regular fa-pen-to-square"></i></a>
-                <a class="me-3" href="/delete-task/{{id}}"><i class="fa-solid fa-trash"></i></a>
+                <a class="me-3" href="/edit-todo/{{this.id}}"><i class="fa-regular fa-pen-to-square"></i></a>
+                <a class="me-3" href="/delete-task/{{this.id}}"><i class="fa-solid fa-trash"></i></a>
               </div>
 
             </div>
           {{/if}}
         {{/each}}
-        <h5>Task Uncompleted</h5>
-        {{#each data}}
+        <h5>Task Uncompleted {{unDone}}</h5>
+        {{#each data.tasks}}
           {{#unless is_done}}
             <div class="row d-flex align-items-center justify-content-center mb-3" style="height: 3rem; border: 2px solid rgb(5, 5, 145); border-radius: 50px;">
               <div class="col-6">
-                <span style="font-weight: 600;" class="ms-3">{{to_do}}</span>
+                <span style="font-weight: 600; text-transform: capitalize;" class="ms-3">{{to_do}}</span>
               </div>
               <div class="col-6 text-end d-flex align-items-center justify-content-end">
 
                 <i class="fa-solid fa-clock me-3" style="font-size: 25px; color: rgb(5, 5, 145);"> </i>
-                <a class="me-3" href="/edit-todo/{{id}}"><i class="fa-regular fa-pen-to-square"></i></a>
-                <a class="me-3" href="/delete-task/{{id}}"><i class="fa-solid fa-trash"></i></a>
+                <a class="me-3" href="/edit-todo/{{this.id}}"><i class="fa-regular fa-pen-to-square"></i></a>
+                <a class="me-3" href="/delete-task/{{this.id}}"><i class="fa-solid fa-trash"></i></a>
               </div>
 
             </div>
