@@ -5,7 +5,7 @@ function calculateInvestmentAfterTwoYears() {
   const bankDeposit = 350000000; // 350 juta
   const governmentBonds = 650000000; // 650 juta
   const stockA = governmentBonds * 0.35; // 35% dari 650 juta
-  const stockB = governmentBonds * 0.35; // Sisanya dari 650 juta
+  const stockB = governmentBonds * 0.35;
   const stoctC = governmentBonds * 0.3;
 
   // Tingkat keuntungan per tahun
