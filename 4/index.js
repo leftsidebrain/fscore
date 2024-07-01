@@ -227,17 +227,12 @@ function logout(req, res) {
   });
 }
 
-app.get("/delete/:id", deleteCollections);
+app.delete("/delete/:id", deleteCollections);
 async function deleteCollections(req, res) {
   const { id } = req.params;
   try {
     const getcoll = await collections.findOne({
       where: { id: id },
-      include: [
-        {
-          model: tasks,
-        },
-      ],
     });
 
     await getcoll.destroy();
